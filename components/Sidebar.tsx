@@ -37,7 +37,7 @@ export default function Sidebar({ isNavOpen }: any) {
               <li className="relative px-6 py-3">
                 <Link
                   className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                  href="/profile"
+                  href="/Timesheet"
                 >
                   <BiUser size={20} />
                   <span className="ml-4">Timesheet</span>
@@ -46,7 +46,7 @@ export default function Sidebar({ isNavOpen }: any) {
               <li className="relative px-6 py-3">
                 <Link
                   className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                  href="cards.html"
+                  href="/reports"
                 >
                   <BsCreditCard2Front size={20} />
                   <span className="ml-4">Reports</span>
@@ -55,10 +55,15 @@ export default function Sidebar({ isNavOpen }: any) {
               <li className="relative px-6 py-3">
                 <a
                   className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                  href="charts.html"
+                  href="chart"
                 >
-                  <BiHelpCircle size={20} />
+                 <Link
+                  className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                  href="/members"
+                >
+                  <BsCreditCard2Front size={20} />
                   <span className="ml-4">Members</span>
+                </Link>
                 </a>
               </li>
               <li className="relative px-6 py-3">
