@@ -10,8 +10,8 @@ const index = () => {
   return (
     <div>
       <div className="  py-5 px-5 float-right container">
-        {/* <Dashboard />
-        <OrderList /> */}
+        <Dashboard />
+        {/* <OrderList />  */}
       </div>{" "}
     </div>
   );
