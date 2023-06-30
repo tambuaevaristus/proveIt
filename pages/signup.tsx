@@ -6,6 +6,8 @@ import { User } from "@/types";
 import { addUser } from "@/slice/userSlice";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import app from '../firebase'
 export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,13 +15,32 @@ export default function Signup() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const dispatch = useDispatch();
   const router = useRouter();
-  
+
+
+  const auth = getAuth(app);
+
   const signUp = async () => {
+   
+createUserWithEmailAndPassword (auth, email, password)
+  .then((userCredential) => {
+
+    alert("Successfully created an email")
+    
+    // ...Signed In
+    const user = userCredential.user
+    console.log("User ====>",user)
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    // const errorMessage = error.message;
+    // ...
+    alert(errorCode);
+  });
    
   };
 
   return (
-    <div className=" mx-auto my-[30px] my-[40px] container bg-white border ">
+    <div className=" mx-auto my-[30px] container bg-white border ">
       <div className="container h-full px-6 py-24">
         <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
           <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12">
@@ -63,7 +84,7 @@ export default function Signup() {
                 <label className="">Full name</label>
                 <input
                   type="text"
-                  className="peer block min-h-[auto] w-full border rounded px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                  className="peer block min-h-[auto] w-full border rounded px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none gray-500 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                   placeholder="Enter Name"
                   onChange={(e) => setFullName(e.target.value)}
                 />
@@ -71,7 +92,7 @@ export default function Signup() {
               <div className="relative mb-6" data-te-input-wrapper-init>
                 <label className="">Email Address</label>
                 <input
-                  type="text"
+                  type={"email"}
                   className="peer block min-h-[auto] w-full border rounded px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                   id="exampleFormControlInput3"
                   placeholder="Email address"
@@ -81,8 +102,8 @@ export default function Signup() {
 
               <div className="relative mb-6" data-te-input-wrapper-init>
                 <label className="">Password</label>
-                <input
-                  type="password"
+                <input 
+                  type={"password"}
                   className="peer block min-h-[auto] w-full border rounded px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
@@ -120,7 +141,7 @@ export default function Signup() {
                 className="inline-block w-full rounded-lg font-bold bg-blue-600 px-7 pb-2.5 pt-3 text-sm leading-normal text-white "
                 onClick={signUp}
               >
-                Sign in
+                Create user
               </button>
 
               <p className="text-sm text-gray-500 my-3 text-center">
