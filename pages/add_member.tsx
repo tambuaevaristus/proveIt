@@ -1,8 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { Fragment, useRef, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
+
 import CustomModal from "@/components/Modal";
 
 export default function add_member() {
