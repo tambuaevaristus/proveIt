@@ -1,4 +1,5 @@
 import Sidebar from '@/components/Sidebar'
+import UserSidebar from '@/components/UserSidebar'
 import React from 'react'
 
 export default function userTeam() {
