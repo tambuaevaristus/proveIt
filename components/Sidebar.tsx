@@ -41,7 +41,7 @@ export default function Sidebar({ isNavOpen }: any) {
                   href="/screens"
                 >
                   <FaCamera size={20} />
-                  <span className="ml-4 text-[15px]">Screen Shorts</span>
+                  <span className="ml-4 text-[15px]">Screenshots</span>
                 </Link>
               </li>
               <li className="relative px-6 py-3">
