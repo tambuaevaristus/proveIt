@@ -72,15 +72,7 @@ export default function UserList() {
               </tr>
             </thead>
             <tbody className="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-              <User />
-              <User />
-              <User />
-              <User />
-              <User />
-              <User />
-              <User />
-              <User />
-              <User />
+            
             </tbody>
           </table>
         </div>
