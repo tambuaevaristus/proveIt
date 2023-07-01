@@ -7,18 +7,64 @@ import { HiDocumentText } from "react-icons/hi";
 
 type props = {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
-  onConfirm: any;
+  // onConfirm: any;
 };
-export default function CustomModal({ setShowModal, onConfirm }: props) {
+export default function CustomModal({ setShowModal }: props) {
   const router = useRouter();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [workingHours, setWorkingHours] = useState("");
+  const [team, setTeam] = useState("");
+  const [role, setRole] = useState("");
+  const [position, setPosition] = useState("");
+  const [timeTrackingStatus, setTimeTrackingStatus] = useState("");
+  const [error, setError] = useState("");
+
+  let userId: string = '455i45i4645034034';
+  let activities: Array<string> = [];
+  let projects: Array<string> = [];
+
+  const showLogs = async (e: any) => {
+
+    e.preventDefault()
+
+    const user = {name, email, phoneNumber, workingHours, team, role, position, timeTrackingStatus, userId, activities, projects}
+
+    const response = await fetch("https://prove-it-api.onrender.com/api/general/users", {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        'Content-Type': "application/json",
+      }
+    })
+
+    const json = await response.json();
+
+    if(!response.ok) {
+      setError(json.error)
+    }
+    if(response.ok) {
+      setName("")
+      setEmail("")
+      setPhoneNumber("")
+      setWorkingHours("")
+      setTeam("")
+      setRole("")
+      setPosition("")
+      setTimeTrackingStatus("")
+      console.log("New user created", json)
+    }
+  };
+
   return (
-    <div className="modal">
-      <div className="w-[800px] bg-white mx-52 rounded-xl my-48 items-center">
+    <div className="modal z-20 absolute">
+      <div className="w-[800px] bg-white mx-52 rounded-xl my-[-20px] items-center">
         <div className="flex items-center justify-between rounded-t-xl bg-blue-900 px-8 pt-4 pb-4">
           <h3 className="h11 text-left text-white font-semibold">
             Add team members
           </h3>
-          <button className="">
+          <button className="" onClick={() => setShowModal(false)}>
             <AiOutlineClose className="text-white text-2xl" size={25} />
           </button>
         </div>
@@ -41,6 +87,10 @@ export default function CustomModal({ setShowModal, onConfirm }: props) {
             placeholder="Full name"
             autoComplete="full-names-1"
             className="block w-[92%] rounded-md border-0 py-3.5 text-gray-900 shadow-sm ring-2 ring-inset ring-blue-900 placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
           />
           <input
             type="email"
@@ -49,6 +99,10 @@ export default function CustomModal({ setShowModal, onConfirm }: props) {
             placeholder="Email"
             autoComplete="professional-email-1"
             className="block w-[92%] rounded-md border-0 py-3.5 text-gray-900 shadow-sm ring-2 ring-inset ring-blue-900 placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
           />
           <input
             type="text"
@@ -57,6 +111,10 @@ export default function CustomModal({ setShowModal, onConfirm }: props) {
             placeholder="Phone number"
             autoComplete="professional-number-1"
             className="block w-[92%] rounded-md border-0 py-3.5 text-gray-900 shadow-sm ring-2 ring-inset ring-blue-900 placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2"
+            value={phoneNumber}
+            onChange={(e) => {
+              setPhoneNumber(e.target.value);
+            }}
           />
           <input
             type="text"
@@ -65,30 +123,43 @@ export default function CustomModal({ setShowModal, onConfirm }: props) {
             placeholder="Working hours"
             autoComplete="working-hours-1"
             className="block w-[92%] rounded-md border-0 py-3.5 text-gray-900 shadow-sm ring-2 ring-inset ring-blue-900 placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2"
+            value={workingHours}
+            onChange={(e) => {
+              setWorkingHours(e.target.value);
+            }}
           />
-          <div className="relative after:content-['▼'] after:text-[1.25rem] after:top-[6px] after:right-[40px] after:absolute">
-            <select
-              id="team"
-              name="team"
-              autoComplete="team-name"
-              className="block w-[400px] rounded-md border-0 py-3 text-gray-600 shadow-sm ring-2 ring-inset ring-blue-900 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 px-2 bg-white -webkit-appearance:none appearance-none"
-            >
-              <option>Without team</option>
-              <option>Cliqkets</option>
-              <option>Cassvita</option>
-              <option>Itamba</option>
-              <option>CIMFEST</option>
-            </select>
-          </div>
           <div className="relative after:content-['▼'] after:text-[1.25rem] after:top-[6px] after:right-[40px] after:absolute">
             <select
               id="status"
               name="status"
               autoComplete="status-name"
               className="block w-[400px] rounded-md border-0 py-3 text-gray-600 shadow-sm ring-2 ring-inset ring-blue-900 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 px-2 bg-white -webkit-appearance:none appearance-none"
+              onChange={(e) => {
+                setRole(e.target.value);
+              }}
+              value={role}
             >
-              <option>Employee</option>
-              <option>Admin</option>
+              <option>Status</option>
+              <option value="User">User</option>
+              <option value="Admin">Admin</option>
+            </select>
+          </div>
+          <div className="relative after:content-['▼'] after:text-[1.25rem] after:top-[6px] after:right-[40px] after:absolute">
+            <select
+              id="team"
+              name="team"
+              autoComplete="team-name"
+              className="block w-[400px] rounded-md border-0 py-3 text-gray-600 shadow-sm ring-2 ring-inset ring-blue-900 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 px-2 bg-white -webkit-appearance:none appearance-none"
+              onChange={(e) => {
+                setTeam(e.target.value);
+              }}
+              value={team}
+            >
+              <option>Select a team</option>
+              <option value="Cliqkets" className="hover:bg-blue-900">Cliqkets</option>
+              <option value="Cassvita">Cassvita</option>
+              <option value="Itamba">Itamba</option>
+              <option value="CIMFEST">CIMFEST</option>
             </select>
           </div>
           <div className="relative after:content-['▼'] after:text-[1.25rem] after:top-[6px] after:right-[40px] after:absolute">
@@ -97,12 +168,16 @@ export default function CustomModal({ setShowModal, onConfirm }: props) {
               name="role"
               autoComplete="role-name"
               className="block w-[400px] rounded-md border-0 py-3 text-gray-600 shadow-sm ring-2 ring-inset ring-blue-900 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 px-2 bg-white -webkit-appearance:none appearance-none"
+              onChange={(e) => {
+                setPosition(e.target.value);
+              }}
+              value={position}
             >
               <option>Choose role in team</option>
-              <option>Lead Engineer</option>
-              <option>Lead Designer</option>
-              <option>Software Engineer</option>
-              <option>Graphic Designer</option>
+              <option value="Lead-engineer">Lead Engineer</option>
+              <option value="Lead-designer">Lead Designer</option>
+              <option value="Software-engineer">Software Engineer</option>
+              <option value="Graphic-designer">Graphic Designer</option>
             </select>
           </div>
           <div className="relative after:content-['▼'] after:text-[1.25rem] after:top-[6px] after:right-[40px] after:absolute">
@@ -111,10 +186,14 @@ export default function CustomModal({ setShowModal, onConfirm }: props) {
               name="time-tracking-status"
               autoComplete="time-tracking-status"
               className="block w-[400px] rounded-md border-0 py-3 text-gray-600 shadow-sm ring-2 ring-inset ring-blue-900 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 px-2 bg-white -webkit-appearance:none appearance-none"
+              onChange={(e) => {
+                setTimeTrackingStatus(e.target.value);
+              }}
+              value={timeTrackingStatus}
             >
               <option>Monitoring state</option>
-              <option>True</option>
-              <option>False</option>
+              <option value="True">True</option>
+              <option value="False">False</option>
             </select>
           </div>
           <div></div>
@@ -158,11 +237,12 @@ export default function CustomModal({ setShowModal, onConfirm }: props) {
             <button
               className="rounded-lg uppercase border-2 border-blue-900 text-center px-3 py-2 text-sm hover:bg-blue-900 hover:text-white"
               onClick={(e) => {
-                onConfirm(e);
-                setShowModal(false);
+                showLogs(e);
+                // onConfirm(e);
+                // setShowModal(false);
               }}
             >
-              <div className="flex items-center gap-1">Invite</div>
+              <div className="flex items-center gap-1">Add User</div>
             </button>
           </div>
         </div>
