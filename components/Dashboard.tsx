@@ -1,9 +1,9 @@
 import React from "react";
 import { BsBuildingCheck } from "react-icons/bs";
 import { FaAudible, FaBuffer, FaHandsHelping, FaUsers } from "react-icons/fa";
-
 import { FiUsers } from "react-icons/fi";
 import { PieChart } from "react-minimal-pie-chart";
+import ScreenShots from "./ScreenShots";
 
 export default function Dashboard() {
   return (
@@ -105,10 +105,38 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      <div className="grid gap-6 mb-8 mt-20 containter shadow-xl">
 
+      <h2 className="font-bold mt-20">Employees Last Screen Shot</h2>
+      <div className=" mb-8 mt-5 shadow-xl flex gap-3">
+        <div className="w-40 h-40 brder-1">
+          <img width="100%" className="h-[100px]" src="/file.jpg" alt="" />
+          <h3 className="my-2 font-bold">Evas Screen</h3>
+        </div>
+        <div className="w-40 h-40 brder-1">
+          <img width="100%" className="h-[100px]" src="/1.png" alt="" />
+          <h3 className="my-2 font-bold">Benards Screen</h3>
+        </div>
+        <div className="w-40 h-40 brder-1">
+          <img width="100%" className="h-[100px]" src="/file.jpg" alt="" />
+          <h3 className="my-2 font-bold">Desmonds Screen</h3>
+        </div>
+        <div className="w-40 h-40 brder-1">
+          <img width="100%" className="h-[100px]" src="/2.png" alt="" />
+          <h3 className="my-2 font-bold">Miriams Screen</h3>
+        </div>
+        <div className="w-40 h-40 brder-1">
+          <img width="100%" className="h-[100px]" src="/3.png" alt="" />
+          <h3 className="my-2 font-bold">Desmonds Screen</h3>
+        </div>
+        <div className="w-40 h-40 brder-1">
+          <img width="100%" className="h-[100px]"  src="/file.jpg" alt="" />
+          <h3 className="my-2 font-bold">Evas Screen</h3>
+        </div>
+        <div className="w-40 h-40 brder-1">
+          <img width="100%" className="h-[100px]" src="/4.png" alt="" />
+          <h3 className="my-2 font-bold">Evas Screen</h3>
+        </div>
       </div>
-
     </div>
   );
 }
