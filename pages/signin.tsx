@@ -35,23 +35,29 @@ export default function Signin() {
     // ...
     alert(errorCode);
   });
-   
-  
     
   };  
   return (
-    <div className=" mx-auto my-[30px] my-[40px] container bg-white border ">
+    <div className=" mx-auto my-[30px] container bg-white border ">
       <div className="container h-full px-6 py-24">
-        <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
-          <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12">
-            <img
-              src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-              className="w-full"
+        <div className="g-3 flex h-full flex-wrap items-center justify-center lg:justify-between">
+          <div className=" ml-10 md:w-8/12 lg:w-5/12 ">
+            <div className="bg-[#1843C8] text-white  md:w-8/12 lg:ml-6 lg:w-[100%] px-2">
+              <img className="w-[380px] h-[200px] py-[50px]" src="asset.png" alt="login" />
+              <h1 className="mt-4 font-semibold text-[24px] my-5">Use ProveIt to get insights on how your employees manages their time.</h1>
+              <p className=" pb-[200px]">ProveIt is useful for documenting work and ensuring accountability,<p className="my-4"> track activities, take multiple screenshorts, and app usage monitoring to know whether an employee is actually working </p> </p>   
+            </div>
+            <div className="ml-6 w-full">          
+            <img 
+              src="login.png"
+              className=""
               alt="Phone image"
             />
+            </div>
+  
           </div>
 
-          <div className="md:w-8/12 lg:ml-6 lg:w-6/12 px-2">
+          <div className="md:w-6/12 lg:ml-6 lg:w-/12 px-2 mr-12">
             <div>
               <div>
                 <h2 className="font-bold text-[25px]">
@@ -61,35 +67,14 @@ export default function Signin() {
                   Field in the following information fieds to access your
                   account
                 </p>
-              </div>
-              <div className="my-5">
-                <p className="font-bold">Signin with</p>
-                <div className="flex justify-center">
-                  <button
-                    className="border w-1/3 font-bold py-2 px-4 rounded-md mr-2"
-                  >
-                    <FcGoogle className="mx-auto" />
-                  </button>
-                  <button className=" text-white w-1/3 border font-bold py-2 px-4 rounded-md mr-2">
-                    <FaFacebook color="blue" className="mx-auto" />{" "}
-                  </button>
-                  <button className="border w-1/3 text-white font-bold py-2 px-4 rounded-md">
-                    <FaFacebook color="blue" className="mx-auto" />
-                  </button>
-                </div>
-              </div>
-
-              <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-                <p className="mx-4 mb-0 text-gray-500 text-center text-sm dark:text-neutral-200">
-                  Or continue with
-                </p>
+                
               </div>
               <div className="relative mb-6" data-te-input-wrapper-init>
                 <label className="">Email Address</label>
                 <input
                   type="text"
-                  className="peer block min-h-[auto] w-full border rounded px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none gray-[ #CCCCCC] [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                  id="exampleFormControlInput3"
+                  className="peer block min-h-[auto] border-2  w-full border-[#1843C8] rounded px-3 py-[0.32rem] leading-[2.15] outline-none "
+                  
                   placeholder="Email address"
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -99,7 +84,7 @@ export default function Signin() {
                 <label className="">Enter Password</label>
                 <input
                   type="password"
-                  className="peer block min-h-[auto] w-full border rounded px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none gray-100 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                  className="peer block min-h-[auto] rounded px-3 py-[0.32rem] leading-[2.15] outline-none border-2  w-full border-[#1843C8] "
                   id="exampleFormControlInput3"
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
