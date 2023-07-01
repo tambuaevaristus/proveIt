@@ -6,7 +6,7 @@ export default function userTeam() {
   return (
     <div>
 
-        <UserSidebar />
+        <Sidebar />
 
         <div className='my-20 w-[900px] bg-[#2D7AE61F] border-2 rounded-xl'>
             <div className='flex gap-16 text-gray-600 ml-5 my-5'>

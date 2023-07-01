@@ -1,7 +1,18 @@
 import React from "react";
 import { BsEyeFill } from "react-icons/bs";
 
-export default function User() {
+
+interface Team {
+  name: string
+  role: string
+  projects: string
+  profession: string
+  teamName: string
+  status:string
+
+}
+
+export default function User({name, role, projects, teamName, profession, status}:Team) {
   return (
     <tr className="text-gray-700 dark:text-gray-400">
       <td className="px-4 py-3">
@@ -19,21 +30,21 @@ export default function User() {
             ></div>
           </div>
           <div>
-            <p className="font-semibold">Tambua Evaristus</p>
+            <p className="font-semibold">{name}</p>
             <p className="text-xs text-gray-600 dark:text-gray-400">
-              Software Developer
+              {profession}
             </p>
           </div>
         </div>
       </td>
       <td className="px-4 py-3 text-sm">
         <span className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-          active
+          {status}
         </span>
       </td>
-      <td className="px-4 py-3 text-xs">Admin</td>
-      <td className="px-4 py-3 text-sm">Beter</td>
-      <td className="px-4 py-3 text-sm">Casvital</td>
+      <td className="px-4 py-3 text-xs">{role}</td>
+      <td className="px-4 py-3 text-sm">{teamName}</td>
+      <td className="px-4 py-3 text-sm">{projects}</td>
       <td className="px-4 py-3 text-sm">
         <span className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
           Enabled

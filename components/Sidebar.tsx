@@ -41,7 +41,7 @@ export default function Sidebar({ isNavOpen }: any) {
                   href="/screens"
                 >
                   <FaCamera size={20} />
-                  <span className="ml-4 text-[15px]">Screen Shorts</span>
+                  <span className="ml-4 text-[15px]">Screenshots</span>
                 </Link>
               </li>
               <li className="relative px-6 py-3">
@@ -58,6 +58,17 @@ export default function Sidebar({ isNavOpen }: any) {
                   </Link>
                 </a>
               </li>
+              <li className="relative px-6 py-3">
+                
+                <Link
+                 className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                 href="/teams"
+               >
+                 <BsCreditCard2Front size={20} />
+                 <span className="ml-4">Teams</span>
+               </Link>
+              
+             </li>
               <li className="relative px-6 py-3">
                 <a
                   className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-[#1843C8]"

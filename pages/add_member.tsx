@@ -16,7 +16,7 @@ export default function add_member() {
         <div className="flex items-center gap-1">Invite</div>
       </button>
       {modal && (
-        <CustomModal setShowModal={setModal} onConfirm={() => {setModal(false)}} />
+        <CustomModal setShowModal={setModal} />
       )}
     </div>
   );
