@@ -1,55 +1,25 @@
-import React from "react";
-import { BsEyeFill } from "react-icons/bs";
-
+import React from "react"
+import { BsEyeFill } from "react-icons/bs"
 
 interface Team {
   name: string
-  role: string
+  members: string
   projects: string
-  profession: string
-  teamName: string
-  status:string
-
 }
 
-export default function User({name, role, projects, teamName, profession, status}:Team) {
+export default function Team({ name, members, projects }: Team) {
   return (
     <tr className="text-gray-700 dark:text-gray-400">
       <td className="px-4 py-3">
         <div className="flex items-center text-sm">
-          <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-            <img
-              className="object-cover w-full h-full rounded-full"
-              src="/eva.jpg"
-              alt=""
-              loading="lazy"
-            />
-            <div
-              className="absolute inset-0 rounded-full shadow-inner"
-              aria-hidden="true"
-            ></div>
-          </div>
           <div>
             <p className="font-semibold">{name}</p>
-            <p className="text-xs text-gray-600 dark:text-gray-400">
-              {profession}
-            </p>
           </div>
         </div>
       </td>
-      <td className="px-4 py-3 text-sm">
-        <span className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-          {status}
-        </span>
-      </td>
-      <td className="px-4 py-3 text-xs">{role}</td>
-      <td className="px-4 py-3 text-sm">{teamName}</td>
-      <td className="px-4 py-3 text-sm">{projects}</td>
-      <td className="px-4 py-3 text-sm">
-        <span className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-          Enabled
-        </span>
-      </td>
+      <td className="px-4 py-3 text-sm">{members}</td>
+      <td className="px-4 py-3 text-sm">{name}</td>
+
       <td className="px-4 py-3">
         <div className="flex items-center space-x-4 text-sm">
           <button className="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-blue-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray">
@@ -88,5 +58,5 @@ export default function User({name, role, projects, teamName, profession, status
         </div>
       </td>
     </tr>
-  );
+  )
 }
