@@ -52,19 +52,34 @@ export default function Dashboard() {
               <p className="font-bold text-[35px]">25</p>
             </div>
           </div>
-          {/* <div className="flex items-center p-4 bg-[#E5EFFC] rounded-lg shadow-xs ">
-            <PieChart
-              data={[
-                { title: "One", value: 10, color: "skyblue" },
-                { title: "Two", value: 15, color: "#C13C37" },
-                { title: "Three", value: 20, color: "#6A2135" },
-              ]}
-
-            />
-            
-          </div> */}
         </div>
+
       </div>
+        <div className="grid gap-6 mb-8 mt-20 containter  md:grid-cols-2 xl:grid-cols-3">
+          <div className=" text-[] p-4 shadow-lg rounded-lg shadow-xs">
+            <p className="text-[35] font-bold">Productivity Bar</p>
+            <div className="flex gap-5 mt-2">
+              <BsBuildingCheck size={45} className="text-[#1843C8] mt-1" />
+              <p className="font-bold text-[35px]">25</p>
+            </div>
+          </div>
+
+          <div className=" text-[] p-4 shadow-lg rounded-lg shadow-xs">
+            <p className="text-[35] font-bold">Top Project Progress</p>
+            <div className="flex gap-5 mt-2">
+              <BsBuildingCheck size={45} className="text-[#1843C8] mt-1" />
+              <p className="font-bold text-[35px]">25</p>
+            </div>
+          </div>
+
+          <div className=" text-[] p-4 shadow-lg rounded-lg shadow-xs">
+            <p className="text-[35] font-bold">Daily Work Progress</p>
+            <div className="flex gap-5 mt-2">
+              <BsBuildingCheck size={45} className="text-[#1843C8] mt-1" />
+              <p className="font-bold text-[35px]">25</p>
+            </div>
+          </div>
+        </div>
     </div>
   );
 }
