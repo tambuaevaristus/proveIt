@@ -4,10 +4,16 @@ import { FaAudible, FaBuffer, FaHandsHelping, FaUsers } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";
 import { PieChart } from "react-minimal-pie-chart";
 import ScreenShots from "./ScreenShots";
+import { BiUserPlus } from "react-icons/bi";
 
 export default function Dashboard() {
   return (
-    <div>
+    <div className=" mb-8 mt-10 containter mx-auto">
+    <div className="w-1/3 mx-auto">
+      <BiUserPlus size={100} className="text-[#1843C8] mx-auto "/>
+      <p className=" text-gray-600 my-3 text-center">ProveIt Dashboard shows an overview of the tracked time, and Data of your employees, To start Add your Employees</p>
+      <button className="text-white bg-[#1843C8] p-3 rounded-md flex gap-2 mx-auto">Add Employee</button>
+    </div>
       <div className="grid gap-6 mb-8 mt-20 containter  md:grid-cols-2 xl:grid-cols-3">
         <div className=" text-[] p-4 bg-[#E5EFFC] rounded-lg shadow-xs">
           <p className="text-[35] font-bold">MEMBERS</p>
