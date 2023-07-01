@@ -7,7 +7,6 @@ import { HiDocumentText } from "react-icons/hi";
 
 type props = {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
-  // onConfirm: any;
 };
 export default function CustomModal({ setShowModal }: props) {
   const router = useRouter();
@@ -238,8 +237,6 @@ export default function CustomModal({ setShowModal }: props) {
               className="rounded-lg uppercase border-2 border-blue-900 text-center px-3 py-2 text-sm hover:bg-blue-900 hover:text-white"
               onClick={(e) => {
                 showLogs(e);
-                // onConfirm(e);
-                // setShowModal(false);
               }}
             >
               <div className="flex items-center gap-1">Add User</div>
